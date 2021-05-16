@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SAMANAUSER">
         <activity android:name=".presentation.login.LoginActivity" />
-        <activity android:name=".presentation.home.HomeActivity">
+        <activity android:name=".presentation.home.HomeActivity"
+            android:theme="@style/SamanaNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

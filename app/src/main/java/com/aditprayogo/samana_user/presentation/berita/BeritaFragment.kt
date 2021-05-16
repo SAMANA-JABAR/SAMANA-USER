@@ -17,4 +17,5 @@ class BeritaFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_berita, container, false)
     }
 
+
 }

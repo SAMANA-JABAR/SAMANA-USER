@@ -2,4 +2,7 @@
     <string name="app_name">SAMANA-USER</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bantuan_title">Bantuan</string>
+    <string name="berita_title">Berita</string>
+    <string name="profile_title">Profile</string>
 </resources>

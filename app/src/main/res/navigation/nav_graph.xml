@@ -8,19 +8,19 @@
     <fragment
         android:id="@+id/bantuanFragment"
         android:name="com.aditprayogo.samana_user.presentation.bantuan.BantuanFragment"
-        android:label="fragment_bantuan"
+        android:label="@string/bantuan_title"
         tools:layout="@layout/fragment_bantuan" />
 
     <fragment
         android:id="@+id/beritaFragment"
         android:name="com.aditprayogo.samana_user.presentation.berita.BeritaFragment"
-        android:label="fragment_berita"
+        android:label="@string/berita_title"
         tools:layout="@layout/fragment_berita" />
 
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.aditprayogo.samana_user.presentation.profile.ProfileFragment"
-        android:label="fragment_profile"
+        android:label="@string/profile_title"
         tools:layout="@layout/fragment_profile" />
 
 </navigation>
