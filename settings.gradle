@@ -1,4 +1,3 @@
-include ':data'
 include ':core'
 include ':app'
 rootProject.name = "SAMANA-USER"

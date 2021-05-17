@@ -3,16 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
+    android:layout_height="match_parent"
     android:fillViewport="true"
     android:fitsSystemWindows="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/dimens22"
-        tools:context=".presentation.bantuan.BantuanFragment">
+        android:layout_height="0dp"
+        tools:context=".presentation.social_assistance.SocialAssistanceFragment">
 
         <ImageView
             android:id="@+id/cardName"
@@ -68,7 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginStart="@dimen/dimens16"
-            android:layout_marginTop="@dimen/dimens30"
+            android:layout_marginTop="@dimen/dimens22"
             android:layout_marginEnd="@dimen/dimens16"
             app:cardBackgroundColor="@color/bluePrimary"
             app:cardCornerRadius="25dp"
@@ -170,7 +168,7 @@
             android:layout_width="match_parent"
             android:layout_height="85dp"
             android:layout_marginStart="@dimen/dimens16"
-            android:layout_marginTop="@dimen/dimens30"
+            android:layout_marginTop="@dimen/dimens22"
             android:layout_marginEnd="@dimen/dimens16"
             app:cardCornerRadius="25dp"
             app:cardElevation="20dp"
@@ -214,17 +212,17 @@
             android:id="@+id/cardInput"
             android:layout_width="match_parent"
             android:layout_height="85dp"
-            android:layout_marginBottom="@dimen/dimens22"
             android:layout_marginStart="@dimen/dimens16"
-            android:layout_marginTop="@dimen/dimens30"
+            android:layout_marginTop="@dimen/dimens22"
+            android:layout_marginBottom="@dimen/dimens22"
             android:layout_marginEnd="@dimen/dimens16"
+            app:cardBackgroundColor="@color/bluePrimary"
             app:cardCornerRadius="25dp"
             app:cardElevation="20dp"
-            app:cardBackgroundColor="@color/bluePrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/cardCekHistory"
             app:layout_constraintStart_toStartOf="@+id/cardCekHistory"
-            app:layout_constraintTop_toBottomOf="@+id/cardCekHistory"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/cardCekHistory">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -237,21 +235,20 @@
                     android:layout_marginStart="@dimen/dimens16"
                     android:background="@drawable/ic_baseline_input_24"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dimens22"
-                    android:textSize="16sp"
                     android:text="INPUT DATA BANSOS"
-                    android:textStyle="bold"
                     android:textColor="@color/white"
-                    app:layout_constraintTop_toTopOf="@id/imgInput"
-                    app:layout_constraintStart_toEndOf="@id/imgInput"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@id/imgInput"
-                    />
+                    app:layout_constraintStart_toEndOf="@id/imgInput"
+                    app:layout_constraintTop_toTopOf="@id/imgInput" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

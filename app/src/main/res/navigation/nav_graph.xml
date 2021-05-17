@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/bantuanFragment">
+    app:startDestination="@id/socialAssistanceFragment">
 
     <fragment
-        android:id="@+id/bantuanFragment"
-        android:name="com.aditprayogo.samana_user.presentation.bantuan.BantuanFragment"
+        android:id="@+id/socialAssistanceFragment"
+        android:name="com.aditprayogo.samana_user.presentation.social_assistance.SocialAssistanceFragment"
         android:label="@string/bantuan_title"
-        tools:layout="@layout/fragment_bantuan" />
+        tools:layout="@layout/fragment_social_assistance" />
 
     <fragment
-        android:id="@+id/beritaFragment"
-        android:name="com.aditprayogo.samana_user.presentation.berita.BeritaFragment"
+        android:id="@+id/newsFragment"
+        android:name="com.aditprayogo.samana_user.presentation.news.NewsFragment"
         android:label="@string/berita_title"
-        tools:layout="@layout/fragment_berita" />
+        tools:layout="@layout/fragment_news" />
 
     <fragment
         android:id="@+id/profileFragment"

@@ -5,4 +5,7 @@
     <string name="bantuan_title">Bantuan</string>
     <string name="berita_title">Berita</string>
     <string name="profile_title">Profile</string>
+    <string name="image_news">imageNews</string>
+    <string name="title">Judul</string>
+    <string name="subtitle">Subtitle</string>
 </resources>

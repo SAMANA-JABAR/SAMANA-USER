@@ -7,7 +7,9 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.aditprayogo.samana_user.R
 import com.aditprayogo.samana_user.databinding.ActivityHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
 
     private val binding : ActivityHomeBinding by lazy {

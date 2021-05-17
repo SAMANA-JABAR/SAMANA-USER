@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/bantuanFragment"
+    <item android:id="@+id/socialAssistanceFragment"
         android:title="Bantuan"
         android:icon="@drawable/ic_money_white"
         />
 
-    <item android:id="@+id/beritaFragment"
+    <item android:id="@+id/newsFragment"
         android:title="Berita"
         android:icon="@drawable/ic_white_book"
         />
