@@ -12,4 +12,5 @@
     <color name="blueSecondary">#3F72AF</color>
     <color name="blueWhite">#DBE2EF</color>
     <color name="blueTint">#DBE2EF</color>
+    <color name="greenSuccess">#3E939D</color>
 </resources>

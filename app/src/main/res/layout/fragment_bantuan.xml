@@ -1,17 +1,263 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.bantuan.BantuanFragment">
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true">
 
-    <ImageView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_background_rounded"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/dimens22"
+        tools:context=".presentation.bantuan.BantuanFragment">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/cardName"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:background="@drawable/shape_statusbar_rounded"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivUser"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="@dimen/dimens24"
+            android:layout_marginTop="@dimen/dimens15"
+            android:layout_marginBottom="@dimen/dimens15"
+            android:background="@drawable/ic_user"
+            app:layout_constraintBottom_toBottomOf="@+id/cardName"
+            app:layout_constraintStart_toStartOf="@+id/cardName"
+            app:layout_constraintTop_toTopOf="@id/cardName" />
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimens24"
+            android:layout_marginTop="@dimen/dimens12"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Aditiya Prayogo"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/ivUser"
+            app:layout_constraintTop_toTopOf="@+id/ivUser" />
+
+        <TextView
+            android:id="@+id/txtNik"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="3671121808000004"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/txtName"
+            app:layout_constraintTop_toBottomOf="@+id/txtName" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardStatus"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginStart="@dimen/dimens16"
+            android:layout_marginTop="@dimen/dimens30"
+            android:layout_marginEnd="@dimen/dimens16"
+            app:cardBackgroundColor="@color/bluePrimary"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardName">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/shapeOval"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimens22"
+                    android:layout_marginTop="@dimen/dimens22"
+                    android:background="@drawable/shape_oval_blue"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/shapeOval1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/shape_oval_blue"
+                    app:layout_constraintStart_toEndOf="@+id/shapeOval"
+                    app:layout_constraintTop_toTopOf="@+id/shapeOval" />
+
+                <TextView
+                    android:id="@+id/txtStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens24"
+                    android:text="Status Bantuan :"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@+id/shapeOval"
+                    app:layout_constraintTop_toBottomOf="@+id/shapeOval" />
+
+                <TextView
+                    android:id="@+id/txtStatusInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimens8"
+                    android:layout_marginEnd="@dimen/dimens22"
+                    android:ellipsize="end"
+                    android:textStyle="bold"
+                    android:maxLines="1"
+                    android:text="AKAN DAPAT"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txtStatus"
+                    app:layout_constraintTop_toTopOf="@+id/txtStatus"
+                    app:layout_goneMarginEnd="@dimen/dimens22" />
+
+                <TextView
+                    android:id="@+id/txtNameInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens24"
+                    android:text="Nama"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/shapeOval"
+                    app:layout_constraintTop_toBottomOf="@+id/txtStatus" />
+
+                <TextView
+                    android:id="@+id/txtNameUser"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens8"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="Aditiya Prayogo"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/txtNameInfo"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNameInfo" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="@dimen/dimens4"
+                    android:background="@drawable/shape_oval_blue_green"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtNameUser"
+                    app:layout_constraintStart_toEndOf="@+id/txtNameUser"
+                    app:layout_constraintTop_toTopOf="@+id/txtNameUser" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardCekHistory"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:layout_marginStart="@dimen/dimens16"
+            android:layout_marginTop="@dimen/dimens30"
+            android:layout_marginEnd="@dimen/dimens16"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="20dp"
+            app:cardBackgroundColor="@color/bluePrimary"
+            app:layout_constraintEnd_toEndOf="@+id/cardStatus"
+            app:layout_constraintStart_toStartOf="@+id/cardStatus"
+            app:layout_constraintTop_toBottomOf="@+id/cardStatus">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imgHistory"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="@dimen/dimens16"
+                    android:background="@drawable/ic_baseline_history_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimens22"
+                    android:textSize="16sp"
+                    android:text="CEK HISTORI BANSOS"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    app:layout_constraintTop_toTopOf="@id/imgHistory"
+                    app:layout_constraintStart_toEndOf="@id/imgHistory"
+                    app:layout_constraintBottom_toBottomOf="@id/imgHistory"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardInput"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:layout_marginBottom="@dimen/dimens22"
+            android:layout_marginStart="@dimen/dimens16"
+            android:layout_marginTop="@dimen/dimens30"
+            android:layout_marginEnd="@dimen/dimens16"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="20dp"
+            app:cardBackgroundColor="@color/bluePrimary"
+            app:layout_constraintEnd_toEndOf="@+id/cardCekHistory"
+            app:layout_constraintStart_toStartOf="@+id/cardCekHistory"
+            app:layout_constraintTop_toBottomOf="@+id/cardCekHistory"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imgInput"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="@dimen/dimens16"
+                    android:background="@drawable/ic_baseline_input_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimens22"
+                    android:textSize="16sp"
+                    android:text="INPUT DATA BANSOS"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    app:layout_constraintTop_toTopOf="@id/imgInput"
+                    app:layout_constraintStart_toEndOf="@id/imgInput"
+                    app:layout_constraintBottom_toBottomOf="@id/imgInput"
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
