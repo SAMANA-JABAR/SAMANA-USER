@@ -1,10 +1,13 @@
 package com.aditprayogo.core.data.remote.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 /**
  * Created by Aditiya Prayogo.
  */
+@Parcelize
 data class Article(
     @SerializedName("author")
     val author: String?,
@@ -22,15 +25,17 @@ data class Article(
     val url: String?,
     @SerializedName("urlToImage")
     val urlToImage: String?
-)
+) : Parcelable
 
+@Parcelize
 data class Source(
     @SerializedName("id")
     val id: String?,
     @SerializedName("name")
     val name: String?
-)
+) : Parcelable
 
+@Parcelize
 data class News(
     @SerializedName("articles")
     val articles: List<Article>?,
@@ -38,4 +43,4 @@ data class News(
     val status: String?,
     @SerializedName("totalResults")
     val totalResults: Int?
-)
+) : Parcelable

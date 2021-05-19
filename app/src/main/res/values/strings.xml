@@ -8,4 +8,6 @@
     <string name="image_news">imageNews</string>
     <string name="title">Judul</string>
     <string name="subtitle">Subtitle</string>
+    <string name="nik_label">Nik</string>
+    <string name="password_label">Password</string>
 </resources>

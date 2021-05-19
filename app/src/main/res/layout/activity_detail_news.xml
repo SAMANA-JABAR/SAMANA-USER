@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bluePrimary"
+        tools:context=".ui.detail.DetailActivity">
+
+        <ImageView
+            android:id="@+id/imgDetailNews"
+            android:layout_width="match_parent"
+            android:layout_height="340dp"
+            android:contentDescription="Image Detail News"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="318dp"
+                android:background="@drawable/bg_card_detail"
+                android:paddingStart="@dimen/dimens16"
+                android:paddingTop="@dimen/dimens22"
+                android:paddingEnd="@dimen/dimens16"
+                android:paddingBottom="@dimen/dimens16">
+
+                <View
+                    android:id="@+id/viewOverview"
+                    android:layout_width="5dp"
+                    android:layout_height="27dp"
+                    android:background="@color/bluePrimary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtOverviewInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimens16"
+                    android:text="Informasi"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/viewOverview"
+                    app:layout_constraintStart_toEndOf="@id/viewOverview"
+                    app:layout_constraintTop_toTopOf="@id/viewOverview" />
+
+                <TextView
+                    android:id="@+id/txtInformation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens16"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/viewOverview"
+                    app:layout_constraintTop_toBottomOf="@id/viewOverview"
+                    tools:text="text information" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
