@@ -11,6 +11,7 @@
     <color name="bluePrimary">#112D4E</color>
     <color name="blueSecondary">#3F72AF</color>
     <color name="blueWhite">#DBE2EF</color>
+    <color name="whiteBackground">#F9F7F7</color>
     <color name="blueTint">#DBE2EF</color>
     <color name="greenSuccess">#3E939D</color>
     <color name="colorShimmer">#DDDDDD</color>

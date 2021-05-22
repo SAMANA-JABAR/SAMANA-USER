@@ -2,7 +2,9 @@ package com.aditprayogo.samana_user.presentation.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.aditprayogo.samana_user.R
@@ -29,5 +31,17 @@ class HomeActivity : AppCompatActivity() {
         binding.bottomNav.setupWithNavController(navController)
         binding.toolbar.setupWithNavController(navController, appBarConfiguration)
         binding.appBarLayout.elevation = 0f
+
+        navHostFragment.findNavController()
+            .addOnDestinationChangedListener { _, destination, _ ->
+                when(destination.id) {
+                    R.id.socialAssistanceFragment, R.id.newsFragment, R.id.profileFragment -> {
+                        binding.bottomNav.visibility = View.VISIBLE
+                    }
+                    else -> {
+                        binding.bottomNav.visibility = View.GONE
+                    }
+                }
+            }
     }
 }

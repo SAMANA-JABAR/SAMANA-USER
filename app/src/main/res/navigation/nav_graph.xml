@@ -9,18 +9,43 @@
         android:id="@+id/socialAssistanceFragment"
         android:name="com.aditprayogo.samana_user.presentation.social_assistance.SocialAssistanceFragment"
         android:label="@string/bantuan_title"
-        tools:layout="@layout/fragment_social_assistance" />
+        tools:layout="@layout/fragment_social_assistance" >
+        <action
+            android:id="@+id/action_socialAssistanceFragment_to_historyAssistanceFragment"
+            app:destination="@id/historyAssistanceFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/newsFragment"
         android:name="com.aditprayogo.samana_user.presentation.news.NewsFragment"
         android:label="@string/berita_title"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_news">
+        <action
+            android:id="@+id/action_newsFragment_to_detailNewsFragment"
+            app:destination="@id/detailNewsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.aditprayogo.samana_user.presentation.profile.ProfileFragment"
         android:label="@string/profile_title"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/detailNewsFragment"
+        android:name="com.aditprayogo.samana_user.presentation.detail_news.DetailNewsFragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_detail_news">
+        <argument
+            android:name="article"
+            app:argType="com.aditprayogo.core.data.remote.response.Article" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyAssistanceFragment"
+        android:name="com.aditprayogo.samana_user.presentation.history_assistance.HistoryAssistanceFragment"
+        android:label="fragment_history_assistance"
+        tools:layout="@layout/fragment_history_assistance" />
 
 </navigation>

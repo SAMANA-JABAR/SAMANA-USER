@@ -10,4 +10,5 @@
     <string name="subtitle">Subtitle</string>
     <string name="nik_label">Nik</string>
     <string name="password_label">Password</string>
+    <string name="detailNews">Detail News</string>
 </resources>
