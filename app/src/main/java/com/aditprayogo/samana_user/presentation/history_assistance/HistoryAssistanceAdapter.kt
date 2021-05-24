@@ -13,7 +13,7 @@ class HistoryAssistanceAdapter : RecyclerView.Adapter<HistoryAssistanceViewHolde
 
     private var dataAssistance = mutableListOf<Bantuan>()
 
-    private fun setData(item : MutableList<Bantuan>) {
+    fun setData(item : MutableList<Bantuan>) {
         this.dataAssistance = item
         notifyDataSetChanged()
     }
