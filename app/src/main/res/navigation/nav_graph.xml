@@ -16,6 +16,12 @@
         <action
             android:id="@+id/action_socialAssistanceFragment_to_inputAssistanceFragment"
             app:destination="@id/inputAssistanceFragment" />
+        <action
+            android:id="@+id/action_socialAssistanceFragment_to_newsFragment"
+            app:destination="@id/newsFragment" />
+        <action
+            android:id="@+id/action_socialAssistanceFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
 
     <fragment
@@ -37,6 +43,7 @@
             android:id="@+id/action_profileFragment_to_changeProfileFragment"
             app:destination="@id/changeProfileFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/detailNewsFragment"
         android:name="com.aditprayogo.samana_user.presentation.detail_news.DetailNewsFragment"
@@ -49,16 +56,19 @@
             android:name="title"
             app:argType="string" />
     </fragment>
+
     <fragment
         android:id="@+id/historyAssistanceFragment"
         android:name="com.aditprayogo.samana_user.presentation.history_assistance.HistoryAssistanceFragment"
         android:label="History Bantuan"
         tools:layout="@layout/fragment_history_assistance" />
+
     <fragment
         android:id="@+id/changeProfileFragment"
         android:name="com.aditprayogo.samana_user.presentation.change_profile.ChangeProfileFragment"
         android:label="Ganti Profile"
         tools:layout="@layout/fragment_change_profile" />
+
     <fragment
         android:id="@+id/inputAssistanceFragment"
         android:name="com.aditprayogo.samana_user.presentation.input_assistance.InputAssistanceFragment"

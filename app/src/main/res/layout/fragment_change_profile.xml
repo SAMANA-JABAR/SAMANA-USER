@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/dimens22"
     tools:context=".presentation.change_profile.ChangeProfileFragment">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -12,6 +11,9 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens22"
+        android:layout_marginTop="@dimen/dimens22"
+        android:layout_marginEnd="@dimen/dimens22"
         android:hint="Password Sekarang"
         app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +32,9 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens22"
         android:layout_marginTop="@dimen/dimens22"
+        android:layout_marginEnd="@dimen/dimens22"
         android:hint="Password Baru"
         app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="@+id/outlinedTextFieldPassword"
@@ -49,7 +53,9 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens22"
         android:layout_marginTop="@dimen/dimens22"
+        android:layout_marginEnd="@dimen/dimens22"
         android:hint="Confirmasi Password Baru"
         app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="@+id/outlinedTextFieldNewPassword"
@@ -67,9 +73,11 @@
         android:id="@+id/btnSimpan"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginStart="@dimen/dimens22"
         android:layout_marginTop="@dimen/dimens22"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/dimens22"
         android:text="Simpan"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/outlinedTextFieldConfirmPassword" />
 

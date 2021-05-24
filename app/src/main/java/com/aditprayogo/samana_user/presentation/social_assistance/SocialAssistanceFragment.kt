@@ -33,14 +33,10 @@ class SocialAssistanceFragment : Fragment() {
     private fun initUi() {
         with(binding) {
             cardCekHistory.setOnClickListener {
-                val directions =
-                    SocialAssistanceFragmentDirections.actionSocialAssistanceFragmentToHistoryAssistanceFragment()
-                findNavController().navigate(directions)
+               findNavController().navigate(R.id.action_socialAssistanceFragment_to_historyAssistanceFragment)
             }
             cardInput.setOnClickListener {
-                val directions =
-                    SocialAssistanceFragmentDirections.actionSocialAssistanceFragmentToInputAssistanceFragment()
-                findNavController().navigate(directions)
+                findNavController().navigate(R.id.action_socialAssistanceFragment_to_inputAssistanceFragment)
             }
         }
     }

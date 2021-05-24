@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/dimens22"
     tools:context=".presentation.input_assistance.InputAssistanceFragment">
 
     <!--    NIK-->
@@ -13,6 +12,9 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens22"
+        android:layout_marginTop="@dimen/dimens22"
+        android:layout_marginEnd="@dimen/dimens22"
         android:hint="@string/nik_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +31,9 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/outlinedTextFieldnama"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginStart="@dimen/dimens22"
         android:layout_marginTop="@dimen/dimens22"
+        android:layout_marginEnd="@dimen/dimens22"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nama"
