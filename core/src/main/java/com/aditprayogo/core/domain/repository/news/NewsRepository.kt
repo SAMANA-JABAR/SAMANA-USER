@@ -1,4 +1,4 @@
-package com.aditprayogo.core.domain.repository
+package com.aditprayogo.core.domain.repository.news
 
 import com.aditprayogo.core.state.ResultState
 import com.aditprayogo.core.data.remote.response.Article

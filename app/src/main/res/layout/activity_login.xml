@@ -1,31 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
-    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
         android:layout_gravity="center"
+        android:gravity="center"
         android:orientation="vertical"
         tools:context=".presentation.login.LoginActivity">
 
         <TextView
+            android:id="@+id/samanaInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SAMANA"
-            android:textSize="35sp"
             android:textColor="@color/bluePrimary"
+            android:textSize="35sp"
             android:textStyle="bold"
-            />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
+            android:id="@+id/imgSamana"
             android:layout_width="240dp"
             android:layout_height="240dp"
             android:layout_marginTop="@dimen/dimens30"
-            android:background="@drawable/ic_login" />
+            android:background="@drawable/ic_login"
+            app:layout_constraintEnd_toEndOf="@+id/samanaInfo"
+            app:layout_constraintStart_toStartOf="@+id/samanaInfo"
+            app:layout_constraintTop_toBottomOf="@+id/samanaInfo" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/outlinedTextFieldNik"
@@ -35,7 +43,10 @@
             android:layout_marginStart="@dimen/dimens22"
             android:layout_marginTop="@dimen/dimens30"
             android:layout_marginEnd="@dimen/dimens22"
-            android:hint="@string/nik_label">
+            android:hint="@string/nik_label"
+            app:layout_constraintEnd_toEndOf="@+id/imgSamana"
+            app:layout_constraintStart_toStartOf="@+id/imgSamana"
+            app:layout_constraintTop_toBottomOf="@+id/imgSamana">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -53,7 +64,10 @@
             android:layout_marginTop="@dimen/dimens30"
             android:layout_marginEnd="@dimen/dimens22"
             android:hint="@string/password_label"
-            app:endIconMode="password_toggle">
+            app:endIconMode="password_toggle"
+            app:layout_constraintEnd_toEndOf="@+id/outlinedTextFieldNik"
+            app:layout_constraintStart_toStartOf="@+id/outlinedTextFieldNik"
+            app:layout_constraintTop_toBottomOf="@+id/outlinedTextFieldNik">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -62,16 +76,32 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/btnLogin"
             android:layout_width="250dp"
             android:layout_height="60dp"
             android:layout_marginStart="@dimen/dimens22"
             android:layout_marginTop="@dimen/dimens30"
             android:layout_marginEnd="@dimen/dimens22"
-            android:text="Login" />
+            android:text="Login"
+            app:layout_constraintEnd_toEndOf="@+id/outlinedTextFieldPassword"
+            app:layout_constraintStart_toStartOf="@+id/outlinedTextFieldPassword"
+            app:layout_constraintTop_toBottomOf="@+id/outlinedTextFieldPassword" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_marginTop="@dimen/dimens22"
+            android:layout_marginBottom="@dimen/dimens22"
+            app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+            app:layout_constraintStart_toStartOf="@+id/btnLogin"
+            app:layout_constraintEnd_toEndOf="@id/btnLogin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
 
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>

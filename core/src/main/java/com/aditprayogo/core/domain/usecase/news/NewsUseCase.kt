@@ -1,4 +1,4 @@
-package com.aditprayogo.core.domain.usecase
+package com.aditprayogo.core.domain.usecase.news
 
 import com.aditprayogo.core.data.remote.response.Article
 import com.aditprayogo.core.state.ResultState

@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aditprayogo.core.data.remote.response.Article
-import com.aditprayogo.core.domain.usecase.NewsUseCase
+import com.aditprayogo.core.domain.usecase.news.NewsUseCase
 import com.aditprayogo.core.state.LoaderState
 import com.aditprayogo.core.state.ResultState
 import dagger.hilt.android.lifecycle.HiltViewModel

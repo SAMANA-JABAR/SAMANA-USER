@@ -1,7 +1,7 @@
 package com.aditprayogo.core.data.repository
 
 import com.aditprayogo.core.data.remote.response.Article
-import com.aditprayogo.core.domain.repository.NewsRepository
+import com.aditprayogo.core.domain.repository.news.NewsRepository
 import com.aditprayogo.core.data.remote.retrofit.NewsService
 import com.aditprayogo.core.state.ResultState
 import kotlinx.coroutines.Dispatchers

@@ -40,7 +40,7 @@ class HistoryAssistanceFragment : Fragment() {
             rvAssistance.layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             rvAssistance.adapter = historyAssistanceAdapter
-            historyAssistanceAdapter.setData(DataDummy.populateHistory())
+//            historyAssistanceAdapter.setData(DataDummy.populateHistory())
         }
     }
 

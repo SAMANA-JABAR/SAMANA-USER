@@ -14,7 +14,6 @@ class HistoryAssistanceViewHolder(itemView : View) : RecyclerView.ViewHolder(ite
 
     fun bind(data : Bantuan) {
         with(binding) {
-            txtAssistance.text = data.jenis
         }
     }
 
