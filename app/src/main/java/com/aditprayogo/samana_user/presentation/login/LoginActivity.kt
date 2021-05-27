@@ -6,13 +6,17 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
+import com.aditprayogo.core.data.UserPreferences
 import com.aditprayogo.core.state.LoaderState
+import com.aditprayogo.core.utils.startNewActivity
 import com.aditprayogo.core.utils.toast
 import com.aditprayogo.samana_user.databinding.ActivityLoginBinding
 import com.aditprayogo.samana_user.presentation.home.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
@@ -23,11 +27,26 @@ class LoginActivity : AppCompatActivity() {
 
     private val loginViewModel: LoginViewModel by viewModels()
 
+    @Inject
+    lateinit var userPreferences: UserPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         initObservers()
         performLogin()
+        initPreference()
+    }
+
+    private fun initPreference() {
+        userPreferences.nik.asLiveData().observe(this, {
+            val activity = if (it == null) LoginActivity::class.java else HomeActivity::class.java
+            if (activity == LoginActivity::class.java) {
+                return@observe
+            } else {
+                startNewActivity(HomeActivity::class.java)
+            }
+        })
     }
 
     private fun initObservers() {
@@ -52,13 +71,15 @@ class LoginActivity : AppCompatActivity() {
                         }
                     }
                     data?.nik?.let {
-                        startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
+                        startNewActivity(HomeActivity::class.java)
                     }
                     showDialog()
                 }
             })
         }
     }
+
+
 
     private fun showDialog() {
         val builder = AlertDialog.Builder(this)
