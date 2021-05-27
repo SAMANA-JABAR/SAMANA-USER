@@ -1,7 +1,7 @@
 package com.aditprayogo.core.di
 
 import com.aditprayogo.core.domain.repository.news.NewsRepository
-import com.aditprayogo.core.data.repository.NewsRepositoryImpl
+import com.aditprayogo.core.data.repository.news.NewsRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

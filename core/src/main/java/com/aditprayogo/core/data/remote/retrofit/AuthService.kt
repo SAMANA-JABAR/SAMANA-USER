@@ -11,7 +11,7 @@ import retrofit2.http.POST
 interface AuthService {
 
     companion object {
-        private const val login_url = "https://admin-login-dot-sharp-ring-312411.et.r.appspot.com"
+        private const val login_url = "https://login-dot-sharp-ring-312411.et.r.appspot.com/"
     }
 
     @FormUrlEncoded

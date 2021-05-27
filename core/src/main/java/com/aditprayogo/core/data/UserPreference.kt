@@ -14,7 +14,7 @@ import javax.inject.Inject
 /**
  * Created by Aditiya Prayogo.
  */
-private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "my_data_store")
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "userData")
 
 class UserPreferences @Inject constructor(@ApplicationContext context: Context) {
 

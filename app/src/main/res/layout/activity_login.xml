@@ -81,26 +81,25 @@
             android:layout_width="250dp"
             android:layout_height="60dp"
             android:layout_marginStart="@dimen/dimens22"
-            android:layout_marginTop="@dimen/dimens30"
+            android:layout_marginTop="@dimen/dimens22"
             android:layout_marginEnd="@dimen/dimens22"
             android:text="Login"
             app:layout_constraintEnd_toEndOf="@+id/outlinedTextFieldPassword"
             app:layout_constraintStart_toStartOf="@+id/outlinedTextFieldPassword"
             app:layout_constraintTop_toBottomOf="@+id/outlinedTextFieldPassword" />
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_marginTop="@dimen/dimens22"
-            android:layout_marginBottom="@dimen/dimens22"
-            app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-            app:layout_constraintStart_toStartOf="@+id/btnLogin"
-            app:layout_constraintEnd_toEndOf="@id/btnLogin"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loadingView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
-            />
-
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="lottie/loading.json"
+            app:lottie_loop="true" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -6,7 +6,7 @@ import com.aditprayogo.core.data.remote.retrofit.AuthService
 import com.aditprayogo.core.data.remote.retrofit.NewsService
 import com.aditprayogo.core.data.remote.retrofit.config.RetrofitAuthConfig
 import com.aditprayogo.core.data.remote.retrofit.config.RetrofitConfig
-import com.aditprayogo.core.data.repository.AuthRepositoryImpl
+import com.aditprayogo.core.data.repository.auth.AuthRepositoryImpl
 import com.aditprayogo.core.domain.repository.auth.AuthRepository
 import dagger.Module
 import dagger.Provides

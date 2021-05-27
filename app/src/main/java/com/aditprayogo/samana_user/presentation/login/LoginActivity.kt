@@ -2,14 +2,13 @@ package com.aditprayogo.samana_user.presentation.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.aditprayogo.core.data.remote.response.AuthResponse
 import com.aditprayogo.core.state.LoaderState
+import com.aditprayogo.core.utils.toast
 import com.aditprayogo.samana_user.databinding.ActivityLoginBinding
 import com.aditprayogo.samana_user.presentation.home.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,15 +27,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         initObservers()
-        initBtn()
-    }
-
-    private fun initBtn() {
-        binding.btnLogin.setOnClickListener {
-            val nik = binding.outlinedTextFieldNik.editText?.text.toString()
-            val password = binding.outlinedTextFieldPassword.editText?.text.toString()
-            loginViewModel.login(nik, password)
-        }
+        performLogin()
     }
 
     private fun initObservers() {
@@ -45,34 +36,58 @@ class LoginActivity : AppCompatActivity() {
                 handleLoaderState(it)
             })
             error.observe(this@LoginActivity, {
-                Toast.makeText(this@LoginActivity, it.toString(), Toast.LENGTH_SHORT).show()
+                it?.let { it1 -> toast(it1) }
             })
             networkError.observe(this@LoginActivity, {
-                Toast.makeText(
-                    this@LoginActivity,
-                    "Please Retry your internet connection",
-                    Toast.LENGTH_SHORT
-                ).show()
+                toast("Please Retry your connection")
             })
-            loginData.observe(this@LoginActivity, {
+            loginData.observe(this@LoginActivity, { data ->
                 lifecycleScope.launch {
-                    saveUserPreferences(
-                        it.nik,
-                        it.password
-                    )
+                    data.nik?.let { nik ->
+                        data.password?.let { password ->
+                            loginViewModel.saveUserPreferences(
+                                nik,
+                                password
+                            )
+                        }
+                    }
+                    data?.nik?.let {
+                        startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
+                    }
+                    showDialog()
                 }
-                Toast.makeText(this@LoginActivity, "Login Berhasil ${it.nik}", Toast.LENGTH_SHORT)
-                    .show()
-                Log.d("dataPASDASD", "initObservers: ${it.nik}, ${it.password}")
             })
+        }
+    }
+
+    private fun showDialog() {
+        val builder = AlertDialog.Builder(this)
+        with(builder) {
+            setTitle("Error")
+            setMessage("User Credential not found")
+            setPositiveButton(
+                "Ok"
+            ) { dialog, id ->
+                // User clicked Update Now button
+                toast("Ok")
+            }
+            show()
+        }
+    }
+
+    private fun performLogin() {
+        binding.btnLogin.setOnClickListener {
+            val nik = binding.outlinedTextFieldNik.editText?.text.toString()
+            val password = binding.outlinedTextFieldPassword.editText?.text.toString()
+            loginViewModel.login(nik, password)
         }
     }
 
     private fun handleLoaderState(it: LoaderState) {
         if (it is LoaderState.ShowLoading) {
-            binding.progressBar.visibility = View.VISIBLE
+            binding.loadingView.visibility = View.VISIBLE
         } else {
-            binding.progressBar.visibility = View.INVISIBLE
+            binding.loadingView.visibility = View.INVISIBLE
         }
     }
 }

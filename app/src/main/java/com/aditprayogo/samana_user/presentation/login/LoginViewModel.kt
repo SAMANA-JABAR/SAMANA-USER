@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.aditprayogo.core.data.remote.response.AuthResponse
+import com.aditprayogo.core.domain.model.User
 import com.aditprayogo.core.domain.usecase.auth.AuthUseCase
 import com.aditprayogo.core.state.LoaderState
 import com.aditprayogo.core.state.ResultState
@@ -35,7 +36,7 @@ class LoginViewModel @Inject constructor(
     private val _networkError = MutableLiveData<Boolean>()
     val networkError get() = _networkError
 
-    private val _loginData = MutableLiveData<AuthResponse>()
+    private val _loginData = MutableLiveData<User>()
     val loginData get() = _loginData
 
     override fun login(nik: String, password: String) {
