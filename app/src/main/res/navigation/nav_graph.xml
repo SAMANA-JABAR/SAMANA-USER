@@ -18,10 +18,12 @@
             app:destination="@id/inputAssistanceFragment" />
         <action
             android:id="@+id/action_socialAssistanceFragment_to_newsFragment"
-            app:destination="@id/newsFragment" />
+            app:destination="@id/newsFragment"
+            app:popUpToSaveState="true"/>
         <action
             android:id="@+id/action_socialAssistanceFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
+            app:destination="@id/profileFragment"
+            app:popUpToSaveState="true"/>
     </fragment>
 
     <fragment
@@ -65,9 +67,9 @@
 
     <fragment
         android:id="@+id/changeProfileFragment"
-        android:name="com.aditprayogo.samana_user.presentation.change_profile.ChangeProfileFragment"
+        android:name="com.aditprayogo.samana_user.presentation.change_profile.ChangePasswordFragment"
         android:label="Ganti Profile"
-        tools:layout="@layout/fragment_change_profile" />
+        tools:layout="@layout/fragment_change_password" />
 
     <fragment
         android:id="@+id/inputAssistanceFragment"

@@ -1,15 +1,14 @@
 package com.aditprayogo.samana_user.presentation.login
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import com.aditprayogo.core.data.UserPreferences
 import com.aditprayogo.core.state.LoaderState
+import com.aditprayogo.core.utils.showAlertDialog
 import com.aditprayogo.core.utils.startNewActivity
 import com.aditprayogo.core.utils.toast
 import com.aditprayogo.samana_user.databinding.ActivityLoginBinding
@@ -54,8 +53,10 @@ class LoginActivity : AppCompatActivity() {
             state.observe(this@LoginActivity, {
                 handleLoaderState(it)
             })
-            error.observe(this@LoginActivity, {
-                it?.let { it1 -> toast(it1) }
+            error.observe(this@LoginActivity, { errorResponse ->
+                errorResponse?.let {
+                    showAlertDialog("User tidak ditemukan")
+                }
             })
             networkError.observe(this@LoginActivity, {
                 toast("Please Retry your connection")
@@ -73,26 +74,8 @@ class LoginActivity : AppCompatActivity() {
                     data?.nik?.let {
                         startNewActivity(HomeActivity::class.java)
                     }
-                    showDialog()
                 }
             })
-        }
-    }
-
-
-
-    private fun showDialog() {
-        val builder = AlertDialog.Builder(this)
-        with(builder) {
-            setTitle("Error")
-            setMessage("User Credential not found")
-            setPositiveButton(
-                "Ok"
-            ) { dialog, id ->
-                // User clicked Update Now button
-                toast("Ok")
-            }
-            show()
         }
     }
 

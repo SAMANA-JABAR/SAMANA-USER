@@ -7,7 +7,7 @@ import kotlinx.parcelize.Parcelize
  * Created by Aditiya Prayogo.
  */
 @Parcelize
-data class User(
+data class UserData(
      val nik : String?,
      val password : String?
 ) : Parcelable
