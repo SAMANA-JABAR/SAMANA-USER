@@ -17,7 +17,7 @@
             android:layout_height="340dp"
             android:contentDescription="Image Detail News"
             android:scaleType="centerCrop"
-            android:src="@drawable/image"
+            android:src="@color/bluePrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -72,6 +72,92 @@
                     app:layout_constraintStart_toStartOf="@id/viewOverview"
                     app:layout_constraintTop_toBottomOf="@id/viewOverview"
                     tools:text="text information" />
+
+                <TableLayout
+                    android:id="@+id/tableLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens16"
+                    app:layout_constraintStart_toStartOf="@id/txtInformation"
+                    app:layout_constraintTop_toBottomOf="@id/txtInformation">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimens8">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Author :"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/txtAuthor"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimens8"
+                            android:layout_weight="1"
+                            android:text="@string/author"
+                            android:textColor="@color/black" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimens8">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Published At :"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/txtPublishedAt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimens8"
+                            android:layout_weight="1"
+                            android:text="Published at"
+                            android:textColor="@color/black" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimens8">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sumber :"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/txtSource"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dimens8"
+                            android:layout_weight="1"
+                            android:text="Sumber"
+                            android:textColor="@color/black" />
+
+                    </TableRow>
+
+                </TableLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGoToBrowser"
+                    android:layout_marginTop="@dimen/dimens16"
+                    android:layout_width="300dp"
+                    android:text="lihat di browser"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@+id/tableLayout"
+                    app:layout_constraintStart_toStartOf="@+id/tableLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

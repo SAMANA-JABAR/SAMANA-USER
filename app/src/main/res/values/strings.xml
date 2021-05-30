@@ -11,4 +11,6 @@
     <string name="nik_label">Nik</string>
     <string name="password_label">Password</string>
     <string name="detailNews">Detail News</string>
+    <string name="author">Author</string>
+    <string name="wawan">Wawan</string>
 </resources>

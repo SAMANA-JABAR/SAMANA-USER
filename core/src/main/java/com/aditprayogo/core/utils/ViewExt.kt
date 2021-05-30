@@ -37,9 +37,9 @@ fun Activity.showAlertDialog(text: String) {
         setPositiveButton(
             "Ok"
         ) { dialog, id ->
-            // User clicked Update Now button
-            toast("Ok")
         }
         show()
     }
 }
+
+

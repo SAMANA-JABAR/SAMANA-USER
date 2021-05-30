@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.aditprayogo.core.data.UserPreferences
+import com.aditprayogo.core.utils.showAlertDialog
 import com.aditprayogo.core.utils.startNewActivity
 import com.aditprayogo.samana_user.R
 import com.aditprayogo.samana_user.databinding.FragmentProfileBinding
@@ -42,9 +44,20 @@ class ProfileFragment : Fragment() {
 
     private fun initPreferences() {
         binding.btnLogout.setOnClickListener {
-            lifecycleScope.launch {
-                userPreferences.clear()
-                activity?.startNewActivity(LoginActivity::class.java)
+            val builder = AlertDialog.Builder(requireContext())
+            with(builder) {
+                setTitle("Pesan")
+                setMessage("Apakah Anda ingin logout ?")
+                setNegativeButton("Cancel") { dialog, id -> }
+                setPositiveButton(
+                    "Ok"
+                ) { dialog, id ->
+                    lifecycleScope.launch {
+                        userPreferences.clear()
+                        activity?.startNewActivity(LoginActivity::class.java)
+                    }
+                }
+                show()
             }
         }
     }

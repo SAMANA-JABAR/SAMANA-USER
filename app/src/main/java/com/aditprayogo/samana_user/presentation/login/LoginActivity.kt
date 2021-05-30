@@ -11,12 +11,14 @@ import com.aditprayogo.core.state.LoaderState
 import com.aditprayogo.core.utils.showAlertDialog
 import com.aditprayogo.core.utils.startNewActivity
 import com.aditprayogo.core.utils.toast
+import com.aditprayogo.samana_user.R
 import com.aditprayogo.samana_user.databinding.ActivityLoginBinding
 import com.aditprayogo.samana_user.presentation.home.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@Suppress("DEPRECATION")
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
@@ -90,8 +92,22 @@ class LoginActivity : AppCompatActivity() {
     private fun handleLoaderState(it: LoaderState) {
         if (it is LoaderState.ShowLoading) {
             binding.loadingView.visibility = View.VISIBLE
+            setButtonToGrey(true)
         } else {
             binding.loadingView.visibility = View.INVISIBLE
+            setButtonToGrey(false)
+        }
+    }
+
+    private fun setButtonToGrey(state : Boolean) {
+        if (state) {
+            binding.btnLogin.setBackgroundColor(resources.getColor(R.color.colorShimmer))
+            binding.btnLogin.setTextColor(resources.getColor(R.color.white))
+            binding.btnLogin.isEnabled = false
+        } else {
+            binding.btnLogin.setBackgroundColor(resources.getColor(R.color.bluePrimary))
+            binding.btnLogin.setTextColor(resources.getColor(R.color.white))
+            binding.btnLogin.isEnabled = true
         }
     }
 }
