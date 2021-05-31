@@ -67,7 +67,8 @@ class LoginActivity : AppCompatActivity() {
                         data.password?.let { password ->
                             loginViewModel.saveUserPreferences(
                                 nik,
-                                password
+                                password,
+                                data.nama!!
                             )
                         }
                     }

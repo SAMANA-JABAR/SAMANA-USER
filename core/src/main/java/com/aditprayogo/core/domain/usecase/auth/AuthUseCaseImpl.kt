@@ -1,6 +1,7 @@
 package com.aditprayogo.core.domain.usecase.auth
 
 import com.aditprayogo.core.domain.model.DashboardData
+import com.aditprayogo.core.domain.model.HistoryData
 import com.aditprayogo.core.domain.model.InputData
 import com.aditprayogo.core.domain.model.PasswordData
 import com.aditprayogo.core.domain.repository.auth.AuthRepository
@@ -20,8 +21,8 @@ class AuthUseCaseImpl @Inject constructor(
         password: String
     ) = authRepository.login(nik, password)
 
-    override suspend fun saveUserPreferences(nik: String, password: String) {
-        authRepository.saveUserPreferences(nik, password)
+    override suspend fun saveUserPreferences(nik: String, password: String, nama : String) {
+        authRepository.saveUserPreferences(nik, password, nama)
     }
 
     override suspend fun changePassword(
@@ -86,6 +87,10 @@ class AuthUseCaseImpl @Inject constructor(
 
     override suspend fun dashboard(nik: String): Flow<ResultState<DashboardData>> {
         return authRepository.dashboard(nik)
+    }
+
+    override suspend fun getHistoryBansos(nik: String): Flow<ResultState<List<HistoryData>>> {
+        return authRepository.getHistoryBansos(nik)
     }
 
 }

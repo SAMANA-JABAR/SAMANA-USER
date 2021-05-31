@@ -1,10 +1,9 @@
-package com.aditprayogo.samana_user.presentation.login
+package com.aditprayogo.samana_user.presentation.history_assistance
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.loader.content.Loader
-import com.aditprayogo.core.domain.model.UserData
+import com.aditprayogo.core.domain.model.HistoryData
 import com.aditprayogo.core.domain.usecase.auth.AuthUseCase
 import com.aditprayogo.core.state.LoaderState
 import com.aditprayogo.core.state.ResultState
@@ -16,15 +15,14 @@ import javax.inject.Inject
 /**
  * Created by Aditiya Prayogo.
  */
-interface LoginViewModelContract {
-    fun login(nik: String, password: String)
-    suspend fun saveUserPreferences(nik : String, password: String, nama: String)
+interface HistoryAssistanceViewModelContract {
+    fun getHistoryBansos(nik : String)
 }
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(
+class HistoryAssistanceViewModel @Inject constructor(
     private val authUseCase: AuthUseCase
-) : ViewModel(), LoginViewModelContract {
+) : ViewModel(), HistoryAssistanceViewModelContract{
 
     private val _state = MutableLiveData<LoaderState>()
     val state get() = _state
@@ -35,31 +33,27 @@ class LoginViewModel @Inject constructor(
     private val _networkError = MutableLiveData<Boolean>()
     val networkError get() = _networkError
 
-    private val _loginData = MutableLiveData<UserData>()
-    val loginData get() = _loginData
+    private val _historyData = MutableLiveData<List<HistoryData>>()
+    val historyData get() = _historyData
 
-    override fun login(nik: String, password: String) {
+    override fun getHistoryBansos(nik: String) {
         _state.value = LoaderState.ShowLoading
         viewModelScope.launch {
-            authUseCase.login(nik, password).collect { data ->
-                when (data) {
+            authUseCase.getHistoryBansos(nik).collect {
+                when(it) {
                     is ResultState.Success -> {
-                        _loginData.postValue(data.data!!)
+                        _historyData.postValue(it.data!!)
                         _state.value = LoaderState.HideLoading
                     }
                     is ResultState.Error -> {
-                        _error.postValue(data.error)
+                        _error.postValue(it.error)
                         _state.value = LoaderState.HideLoading
                     }
-                    is ResultState.NetworkError -> _networkError.postValue(true)
+                    is ResultState.NetworkError -> {
+                        _networkError.postValue(true)
+                    }
                 }
             }
         }
     }
-
-    override suspend fun saveUserPreferences(nik: String, password: String, nama : String) {
-        authUseCase.saveUserPreferences(nik,password, nama)
-    }
-
-
 }

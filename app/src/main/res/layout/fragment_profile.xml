@@ -19,19 +19,21 @@
             android:src="@drawable/ic_user" />
 
         <TextView
+            android:id="@+id/txtName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Ate Sudrajat"
+            android:text="@string/loading"
             android:textColor="@color/black"
             android:textSize="22sp"
             android:textStyle="normal" />
 
         <TextView
+            android:id="@+id/txtNik"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="3671121808000004"
+            android:text="@string/loading"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="normal" />

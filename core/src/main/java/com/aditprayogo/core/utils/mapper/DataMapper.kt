@@ -1,13 +1,7 @@
 package com.aditprayogo.core.utils.mapper
 
-import com.aditprayogo.core.data.remote.response.AuthResponse
-import com.aditprayogo.core.data.remote.response.BantuanResponse
-import com.aditprayogo.core.data.remote.response.DashboardResponse
-import com.aditprayogo.core.data.remote.response.PasswordResponse
-import com.aditprayogo.core.domain.model.DashboardData
-import com.aditprayogo.core.domain.model.InputData
-import com.aditprayogo.core.domain.model.PasswordData
-import com.aditprayogo.core.domain.model.UserData
+import com.aditprayogo.core.data.remote.response.*
+import com.aditprayogo.core.domain.model.*
 
 /**
  * Created by Aditiya Prayogo.
@@ -15,7 +9,7 @@ import com.aditprayogo.core.domain.model.UserData
 object DataMapper {
 
     fun mapUserDataToUserDomain(data: AuthResponse): UserData =
-        UserData(nik = data.nik, password = data.password)
+        UserData(nik = data.nik, password = data.password, nama = data.nama)
 
     fun mapPasswordDataToUserDomain(data: PasswordResponse): PasswordData =
         PasswordData(status = data.status)
@@ -30,5 +24,16 @@ object DataMapper {
             nik = data.nik,
             status = data.status
         )
+
+    fun mapHistoryResponseToDataDomain(data: List<HistoryResponseItem>): List<HistoryData> =
+        data.map {
+            HistoryData(
+                jenis = it.jenis,
+                status = it.status,
+                tahap = it.tahap,
+                tanggal = it.tanggal,
+                validasi = it.validasi
+            )
+        }
 
 }

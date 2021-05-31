@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.aditprayogo.core.data.UserPreferences
@@ -62,6 +63,14 @@ class ProfileFragment : Fragment() {
 
     private fun initUi() {
         with(binding) {
+            lifecycleScope.launch {
+                userPreferences.name.asLiveData().observe(viewLifecycleOwner, {
+                    txtName.text = it
+                })
+                userPreferences.nik.asLiveData().observe(viewLifecycleOwner, {
+                    txtNik.text = it
+                })
+            }
             cardChangePassword.setOnClickListener {
                 val direction =
                     ProfileFragmentDirections.actionProfileFragmentToChangeProfileFragment()

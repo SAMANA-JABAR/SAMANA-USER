@@ -1,9 +1,6 @@
 package com.aditprayogo.core.data.remote.retrofit
 
-import com.aditprayogo.core.data.remote.response.AuthResponse
-import com.aditprayogo.core.data.remote.response.BantuanResponse
-import com.aditprayogo.core.data.remote.response.DashboardResponse
-import com.aditprayogo.core.data.remote.response.PasswordResponse
+import com.aditprayogo.core.data.remote.response.*
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
@@ -18,6 +15,7 @@ interface AuthService {
         private const val change_password_url = "https://changepass-dot-sharp-ring-312411.et.r.appspot.com/"
         private const val input_bantuan_url = "https://inputbantuan-dot-sharp-ring-312411.et.r.appspot.com/"
         private const val dashboard_url = "https://dashboard-dot-sharp-ring-312411.et.r.appspot.com/"
+        private const val history_bansos_url = "https://history-dot-sharp-ring-312411.et.r.appspot.com/"
     }
 
     /**
@@ -29,6 +27,15 @@ interface AuthService {
         @Field("nik") nik: String,
         @Field("password") password: String
     ): AuthResponse
+
+    /**
+     * get history bansos
+     */
+    @FormUrlEncoded
+    @POST(history_bansos_url)
+    suspend fun getHistoryBansos(
+        @Field("nik") nik : String,
+    ) : HistoryResponse
 
     /**
      * Change password service

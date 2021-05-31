@@ -2,10 +2,7 @@ package com.aditprayogo.core.data.repository.auth
 
 import com.aditprayogo.core.data.UserPreferences
 import com.aditprayogo.core.data.remote.retrofit.AuthService
-import com.aditprayogo.core.domain.model.DashboardData
-import com.aditprayogo.core.domain.model.InputData
-import com.aditprayogo.core.domain.model.PasswordData
-import com.aditprayogo.core.domain.model.UserData
+import com.aditprayogo.core.domain.model.*
 import com.aditprayogo.core.domain.repository.auth.AuthRepository
 import com.aditprayogo.core.state.ResultState
 import com.aditprayogo.core.utils.mapper.DataMapper
@@ -36,9 +33,10 @@ class AuthRepositoryImpl @Inject constructor(
 
     override suspend fun saveUserPreferences(
         nik: String,
-        password: String
+        password: String,
+        nama: String
     ) {
-        userPreferences.saveUser(nik, password)
+        userPreferences.saveUser(nik, password, nama)
     }
 
     override suspend fun changePassword(
@@ -55,6 +53,30 @@ class AuthRepositoryImpl @Inject constructor(
                 emit(ResultState.Error(e.toString(), 401))
             }
         }.flowOn(Dispatchers.IO)
+    }
+
+    override suspend fun dashboard(nik: String): Flow<ResultState<DashboardData>> {
+        return flow {
+            try {
+                val response = authService.dashboard(nik)
+                val dataMapped = DataMapper.mapDashboardResponseToDomain(response)
+                emit(ResultState.Success(dataMapped))
+            } catch (e: Exception) {
+                emit(ResultState.Error(e.toString(), 500))
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    override suspend fun getHistoryBansos(nik: String): Flow<ResultState<List<HistoryData>>> {
+        return flow {
+            try {
+                val response = authService.getHistoryBansos(nik)
+                val mapedData = DataMapper.mapHistoryResponseToDataDomain(response)
+                emit(ResultState.Success(mapedData))
+            } catch (e : Exception) {
+                emit(ResultState.Error(e.toString(), 500))
+            }
+        }
     }
 
     override suspend fun inputBantuan(
@@ -112,18 +134,6 @@ class AuthRepositoryImpl @Inject constructor(
                 val dataMapped = DataMapper.mapInputDataResponseToDomain(response)
                 emit(ResultState.Success(dataMapped))
             } catch (e: Exception) {
-                emit(ResultState.Error(e.toString(), 500))
-            }
-        }.flowOn(Dispatchers.IO)
-    }
-
-    override suspend fun dashboard(nik: String): Flow<ResultState<DashboardData>> {
-        return flow {
-            try {
-                val response = authService.dashboard(nik)
-                val dataMapped = DataMapper.mapDashboardResponseToDomain(response)
-                emit(ResultState.Success(dataMapped))
-            } catch (e : Exception) {
                 emit(ResultState.Error(e.toString(), 500))
             }
         }.flowOn(Dispatchers.IO)

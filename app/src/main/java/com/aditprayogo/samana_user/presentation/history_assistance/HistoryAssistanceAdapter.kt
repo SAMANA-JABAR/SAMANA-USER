@@ -3,7 +3,7 @@ package com.aditprayogo.samana_user.presentation.history_assistance
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.aditprayogo.core.data.remote.response.Bantuan
+import com.aditprayogo.core.domain.model.HistoryData
 import com.aditprayogo.samana_user.R
 
 /**
@@ -11,10 +11,10 @@ import com.aditprayogo.samana_user.R
  */
 class HistoryAssistanceAdapter : RecyclerView.Adapter<HistoryAssistanceViewHolder>() {
 
-    private var dataAssistance = mutableListOf<Bantuan>()
+    private var historyData = mutableListOf<HistoryData>()
 
-    fun setData(item : MutableList<Bantuan>) {
-        this.dataAssistance = item
+    fun setData(item : MutableList<HistoryData>) {
+        this.historyData = item
         notifyDataSetChanged()
     }
     
@@ -25,8 +25,8 @@ class HistoryAssistanceAdapter : RecyclerView.Adapter<HistoryAssistanceViewHolde
     }
 
     override fun onBindViewHolder(holder: HistoryAssistanceViewHolder, position: Int) {
-        holder.bind(dataAssistance[position])
+        holder.bind(historyData[position])
     }
 
-    override fun getItemCount(): Int = dataAssistance.size
+    override fun getItemCount(): Int = historyData.size
 }

@@ -32,8 +32,6 @@ class SocialAssistanceFragment : Fragment() {
 
     private val socialAssistanceViewModel by viewModels<SocialAssistanceViewModel>()
 
-//    private var dashboardData : DashboardData? = null
-
     private var nik : String? = null
 
     override fun onCreateView(

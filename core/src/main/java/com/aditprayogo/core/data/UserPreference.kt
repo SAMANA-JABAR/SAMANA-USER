@@ -25,15 +25,21 @@ class UserPreferences @Inject constructor(@ApplicationContext context: Context) 
             preferences[NIK]
         }
 
+    val name: Flow<String?>
+        get() = appContext.dataStore.data.map { preferences ->
+            preferences[NAMA]
+        }
+
     val password: Flow<String?>
         get() = appContext.dataStore.data.map { preferences ->
             preferences[PASSWORD]
         }
 
-    suspend fun saveUser(nik: String, password: String) {
+    suspend fun saveUser(nik: String, password: String, nama : String) {
         appContext.dataStore.edit { preferences ->
             preferences[NIK] = nik
             preferences[PASSWORD] = password
+            preferences[NAMA] = nama
         }
     }
 
@@ -46,6 +52,7 @@ class UserPreferences @Inject constructor(@ApplicationContext context: Context) 
     companion object {
         private val NIK = stringPreferencesKey("key_nik")
         private val PASSWORD = stringPreferencesKey("key_password")
+        private val NAMA = stringPreferencesKey("key_nama")
     }
 
 }

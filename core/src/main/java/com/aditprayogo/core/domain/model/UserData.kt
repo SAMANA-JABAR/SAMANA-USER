@@ -9,5 +9,6 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class UserData(
      val nik : String?,
-     val password : String?
+     val password : String?,
+     val nama : String?
 ) : Parcelable
