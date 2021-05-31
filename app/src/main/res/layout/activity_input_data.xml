@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".presentation.input_assistance.InputAssistanceFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--    Nama-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedTextFieldnama"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimens22"
+            android:layout_marginTop="@dimen/dimens22"
+            android:layout_marginEnd="@dimen/dimens22"
+            android:hint="Nama"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/LLTanggalHair"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/outlinedTextFieldnama"
+            app:layout_constraintStart_toStartOf="@+id/outlinedTextFieldnama"
+            app:layout_constraintTop_toBottomOf="@+id/outlinedTextFieldnama">
+
+            <!--    Date-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtDate"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/dimens22"
+                android:layout_marginTop="@dimen/dimens22"
+                android:layout_marginEnd="@dimen/dimens22"
+                android:hint="Tanggal Lahir"
+                app:layout_constraintEnd_toEndOf="@+id/outlinedTextFieldNik"
+                app:layout_constraintStart_toStartOf="@+id/outlinedTextFieldNik"
+                app:layout_constraintTop_toBottomOf="@+id/outlinedTextFieldNik">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="date" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimens16"
+                android:layout_marginEnd="@dimen/dimens22"
+                android:layout_weight="1"
+                android:text="Ambil Tanggal" />
+
+        </LinearLayout>
+
+        <!-- Tanggungan Keluarga-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedTextFieldTanggungan"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimens22"
+            android:layout_marginTop="@dimen/dimens22"
+            android:layout_marginEnd="@dimen/dimens22"
+            android:hint="Tanggungan Keluarga"
+            app:layout_constraintEnd_toEndOf="@+id/LLTanggalHair"
+            app:layout_constraintStart_toStartOf="@+id/LLTanggalHair"
+            app:layout_constraintTop_toBottomOf="@+id/LLTanggalHair">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextTanggungan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Pendidikan-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedTextFieldPendidikan"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimens22"
+            android:layout_marginTop="@dimen/dimens22"
+            android:layout_marginEnd="@dimen/dimens22"
+            android:hint="Pendidikan"
+            app:layout_constraintEnd_toEndOf="@+id/outlinedTextFieldTanggungan"
+            app:layout_constraintStart_toStartOf="@+id/outlinedTextFieldTanggungan"
+            app:layout_constraintTop_toBottomOf="@+id/outlinedTextFieldTanggungan">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextPendidikan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Profesi-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedTextFieldProfesi"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimens22"
+            android:layout_marginTop="@dimen/dimens22"
+            android:layout_marginEnd="@dimen/dimens22"
+            android:hint="Profesi"
+            app:layout_constraintEnd_toEndOf="@+id/outlinedTextFieldPendidikan"
+            app:layout_constraintStart_toStartOf="@+id/outlinedTextFieldPendidikan"
+            app:layout_constraintTop_toBottomOf="@+id/outlinedTextFieldPendidikan">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextProfesi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Status-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedTextFieldStatus"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimens22"
+            android:layout_marginTop="@dimen/dimens22"
+            android:layout_marginEnd="@dimen/dimens22"
+            android:hint="Status"
+            app:layout_constraintEnd_toEndOf="@+id/outlinedTextFieldProfesi"
+            app:layout_constraintStart_toStartOf="@+id/outlinedTextFieldProfesi"
+            app:layout_constraintTop_toBottomOf="@+id/outlinedTextFieldProfesi">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- gaji-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedTextFieldGaji"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimens22"
+            android:layout_marginTop="@dimen/dimens22"
+            android:layout_marginEnd="@dimen/dimens22"
+            android:hint="Gaji"
+            app:layout_constraintEnd_toEndOf="@+id/outlinedTextFieldStatus"
+            app:layout_constraintStart_toStartOf="@+id/outlinedTextFieldStatus"
+            app:layout_constraintTop_toBottomOf="@+id/outlinedTextFieldStatus">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextGaji"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- kota-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedTextFieldKota"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimens22"
+            android:layout_marginTop="@dimen/dimens22"
+            android:layout_marginEnd="@dimen/dimens22"
+            android:hint="Kota"
+            app:layout_constraintEnd_toEndOf="@+id/outlinedTextFieldGaji"
+            app:layout_constraintStart_toStartOf="@+id/outlinedTextFieldGaji"
+            app:layout_constraintTop_toBottomOf="@+id/outlinedTextFieldGaji">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- kecamatan-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedTextFieldKecamatan"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimens22"
+            android:layout_marginTop="@dimen/dimens22"
+            android:layout_marginEnd="@dimen/dimens22"
+            android:hint="Kecamatan"
+            app:layout_constraintEnd_toEndOf="@+id/outlinedTextFieldKota"
+            app:layout_constraintStart_toStartOf="@+id/outlinedTextFieldKota"
+            app:layout_constraintTop_toBottomOf="@+id/outlinedTextFieldKota">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- kelurahan-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outlinedTextFieldKelurahan"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimens22"
+            android:layout_marginTop="@dimen/dimens22"
+            android:layout_marginEnd="@dimen/dimens22"
+            android:hint="Kelurahan"
+            app:layout_constraintEnd_toEndOf="@+id/outlinedTextFieldKecamatan"
+            app:layout_constraintStart_toStartOf="@+id/outlinedTextFieldKecamatan"
+            app:layout_constraintTop_toBottomOf="@+id/outlinedTextFieldKecamatan">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNext"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="@dimen/dimens22"
+            android:text="Lanjut"
+            app:layout_constraintEnd_toEndOf="@+id/outlinedTextFieldKelurahan"
+            app:layout_constraintStart_toStartOf="@+id/outlinedTextFieldKelurahan"
+            app:layout_constraintTop_toBottomOf="@+id/outlinedTextFieldKelurahan"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

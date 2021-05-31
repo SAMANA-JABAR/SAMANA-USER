@@ -1,13 +1,15 @@
 package com.aditprayogo.samana_user.presentation.social_assistance
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.aditprayogo.samana_user.R
 import com.aditprayogo.samana_user.databinding.FragmentSocialAssistanceBinding
+import com.aditprayogo.samana_user.presentation.input_assistance.InputDataActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -36,7 +38,8 @@ class SocialAssistanceFragment : Fragment() {
                findNavController().navigate(R.id.action_socialAssistanceFragment_to_historyAssistanceFragment)
             }
             cardInput.setOnClickListener {
-                findNavController().navigate(R.id.action_socialAssistanceFragment_to_inputAssistanceFragment)
+                activity?.startActivity(Intent(context, InputDataActivity::class.java))
+//                findNavController().navigate(R.id.action_socialAssistanceFragment_to_inputAssistanceFragment)
             }
         }
     }

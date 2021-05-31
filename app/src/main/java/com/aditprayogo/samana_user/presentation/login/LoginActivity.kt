@@ -8,9 +8,7 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import com.aditprayogo.core.data.UserPreferences
 import com.aditprayogo.core.state.LoaderState
-import com.aditprayogo.core.utils.showAlertDialog
-import com.aditprayogo.core.utils.startNewActivity
-import com.aditprayogo.core.utils.toast
+import com.aditprayogo.core.utils.*
 import com.aditprayogo.samana_user.R
 import com.aditprayogo.samana_user.databinding.ActivityLoginBinding
 import com.aditprayogo.samana_user.presentation.home.HomeActivity
@@ -45,7 +43,7 @@ class LoginActivity : AppCompatActivity() {
             if (activity == LoginActivity::class.java) {
                 return@observe
             } else {
-                startNewActivity(HomeActivity::class.java)
+                startNewActivityAndClear(HomeActivity::class.java)
             }
         })
     }
@@ -74,7 +72,7 @@ class LoginActivity : AppCompatActivity() {
                         }
                     }
                     data?.nik?.let {
-                        startNewActivity(HomeActivity::class.java)
+                        startNewActivityAndClear(HomeActivity::class.java)
                     }
                 }
             })
@@ -91,10 +89,10 @@ class LoginActivity : AppCompatActivity() {
 
     private fun handleLoaderState(it: LoaderState) {
         if (it is LoaderState.ShowLoading) {
-            binding.loadingView.visibility = View.VISIBLE
+            binding.loadingView.setVisible()
             setButtonToGrey(true)
         } else {
-            binding.loadingView.visibility = View.INVISIBLE
+            binding.loadingView.setGone()
             setButtonToGrey(false)
         }
     }

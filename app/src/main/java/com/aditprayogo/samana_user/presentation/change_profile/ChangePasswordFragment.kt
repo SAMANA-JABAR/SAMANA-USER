@@ -1,6 +1,7 @@
 package com.aditprayogo.samana_user.presentation.change_profile
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import com.aditprayogo.core.data.UserPreferences
 import com.aditprayogo.core.state.LoaderState
 import com.aditprayogo.core.utils.showAlertDialog
-import com.aditprayogo.core.utils.startNewActivity
+import com.aditprayogo.core.utils.startNewActivityAndClear
 import com.aditprayogo.samana_user.databinding.FragmentChangePasswordBinding
 import com.aditprayogo.samana_user.presentation.login.LoginActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -60,6 +61,7 @@ class ChangePasswordFragment : Fragment() {
             btnSimpan.setOnClickListener {
                 val password = outlinedTextFieldCurrentPassword.editText?.text.toString()
                 val newPassword = outlinedTextFieldNewPassword.editText?.text.toString()
+                Log.d("nikSiUser", "initData: $nik")
                 nik?.let { changePasswordViewModel.changePassword(it, password,newPassword) }
             }
 
@@ -81,7 +83,7 @@ class ChangePasswordFragment : Fragment() {
                 data.status?.let { activity?.showAlertDialog(it) }
                 lifecycleScope.launch {
                     userPreferences.clear()
-                    activity?.startNewActivity(LoginActivity::class.java)
+                    activity?.startNewActivityAndClear(LoginActivity::class.java)
                 }
             })
         }

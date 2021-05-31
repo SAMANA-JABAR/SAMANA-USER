@@ -22,7 +22,7 @@ fun Context.toast(message: String, duration: Int = Toast.LENGTH_SHORT) {
     Toast.makeText(this, message, duration).show()
 }
 
-fun <A : Activity> Activity.startNewActivity(activity: Class<A>) {
+fun <A : Activity> Activity.startNewActivityAndClear(activity: Class<A>) {
     Intent(this, activity).also {
         it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(it)

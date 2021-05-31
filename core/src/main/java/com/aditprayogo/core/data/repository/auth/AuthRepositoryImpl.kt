@@ -2,6 +2,7 @@ package com.aditprayogo.core.data.repository.auth
 
 import com.aditprayogo.core.data.UserPreferences
 import com.aditprayogo.core.data.remote.retrofit.AuthService
+import com.aditprayogo.core.domain.model.InputData
 import com.aditprayogo.core.domain.model.PasswordData
 import com.aditprayogo.core.domain.model.UserData
 import com.aditprayogo.core.domain.repository.auth.AuthRepository
@@ -51,6 +52,66 @@ class AuthRepositoryImpl @Inject constructor(
                 emit(ResultState.Success(dataMapped))
             } catch (e: Exception) {
                 emit(ResultState.Error(e.toString(), 401))
+            }
+        }
+    }
+
+    override suspend fun inputBantuan(
+        nama: String,
+        nik: String,
+        tglLahir: String,
+        tanggungan: String,
+        pendidikan: String,
+        profesi: String,
+        status: String,
+        gaji: String,
+        kota: String,
+        kecamatan: String,
+        kelurahan: String,
+        rt: String,
+        rw: String,
+        alamat: String,
+        bantuan: String,
+        tahap: String,
+        kesehatan: String,
+        atap: String,
+        dinding: String,
+        lantai: String,
+        penerangan: String,
+        air: String,
+        luasRumah: String
+    ): Flow<ResultState<InputData>> {
+        return flow {
+            try {
+                val response = authService.inputBantuan(
+                    nama,
+                    nik,
+                    tglLahir,
+                    tanggungan,
+                    pendidikan,
+                    profesi,
+                    status,
+                    gaji,
+                    kota,
+                    kecamatan,
+                    kelurahan,
+                    rt,
+                    rw,
+                    alamat,
+                    bantuan,
+                    tahap,
+                    kesehatan,
+                    atap,
+                    dinding,
+                    lantai,
+                    penerangan,
+                    air,
+                    luasRumah
+                )
+                val dataMapped = DataMapper.mapInputDataResponseToDomain(response)
+                emit(ResultState.Success(dataMapped))
+            } catch (e: Exception) {
+                emit(ResultState.Error(e.toString(), 500))
             }
         }
     }

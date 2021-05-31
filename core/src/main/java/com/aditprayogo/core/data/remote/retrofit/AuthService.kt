@@ -1,6 +1,7 @@
 package com.aditprayogo.core.data.remote.retrofit
 
 import com.aditprayogo.core.data.remote.response.AuthResponse
+import com.aditprayogo.core.data.remote.response.BantuanResponse
 import com.aditprayogo.core.data.remote.response.PasswordResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -14,6 +15,7 @@ interface AuthService {
     companion object {
         private const val login_url = "https://login-dot-sharp-ring-312411.et.r.appspot.com/"
         private const val change_password_url = "https://changepass-dot-sharp-ring-312411.et.r.appspot.com/"
+        private const val input_bantuan_url = "https://inputbantuan-dot-sharp-ring-312411.et.r.appspot.com/"
     }
 
     /**
@@ -37,6 +39,36 @@ interface AuthService {
         @Field("newpass") newPass : String
     ) : PasswordResponse
 
+    /**
+     * Input bantuan url
+     */
+    @FormUrlEncoded
+    @POST(input_bantuan_url)
+    suspend fun inputBantuan(
+        @Field("nama") nama : String,
+        @Field("nik") nik : String,
+        @Field("tgl_lahir") tglLahir : String,
+        @Field("tanggungan") tanggungan : String,
+        @Field("pendidikan") pendidikan : String,
+        @Field("profesi") profesi : String,
+        @Field("status") status : String,
+        @Field("gaji") gaji : String,
+        @Field("kota") kota : String,
+        @Field("kecamatan") kecamatan : String,
+        @Field("kelurahan") kelurahan : String,
+        @Field("rt") rt : String,
+        @Field("rw") rw : String,
+        @Field("alamat") alamat : String,
+        @Field("bantuan") bantuan : String,
+        @Field("tahap") tahap : String,
+        @Field("kesehatan") kesehatan : String,
+        @Field("atap") atap : String,
+        @Field("dinding") dinding : String,
+        @Field("lantai") lantai : String,
+        @Field("penerangan") penerangan : String,
+        @Field("air") air : String,
+        @Field("luas_rumah") luasRumah : String,
+    ) : BantuanResponse
 
 
 }

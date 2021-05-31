@@ -44,7 +44,7 @@ class LoginViewModel @Inject constructor(
             authUseCase.login(nik, password).collect { data ->
                 when (data) {
                     is ResultState.Success -> {
-                        _loginData.postValue(data.data)
+                        _loginData.postValue(data.data!!)
                         _state.value = LoaderState.HideLoading
                     }
                     is ResultState.Error -> {

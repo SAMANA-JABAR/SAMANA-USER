@@ -12,6 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SAMANAUSER">
+        <activity android:name=".presentation.input_assistance.InputDataLanjutanActivity"></activity>
+        <activity android:name=".presentation.input_assistance.InputDataActivity" />
         <activity
             android:name=".presentation.login.LoginActivity"
             android:theme="@style/SamanaNoActionBar">
@@ -23,8 +25,7 @@
         </activity>
         <activity
             android:name=".presentation.home.HomeActivity"
-            android:theme="@style/SamanaNoActionBar">
-        </activity>
+            android:theme="@style/SamanaNoActionBar" />
     </application>
 
 </manifest>

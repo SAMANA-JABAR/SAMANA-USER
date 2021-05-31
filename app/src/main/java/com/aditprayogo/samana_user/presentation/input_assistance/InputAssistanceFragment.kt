@@ -23,4 +23,16 @@ class InputAssistanceFragment : Fragment() {
         // Inflate the layout for this fragment
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initUI()
+    }
+
+    private fun initUI() {
+        with(binding) {
+            etDate.setText("ASDASDASD")
+            etDate.isEnabled = false
+        }
+    }
 }
