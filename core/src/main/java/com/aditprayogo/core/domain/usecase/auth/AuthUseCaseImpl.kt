@@ -1,5 +1,6 @@
 package com.aditprayogo.core.domain.usecase.auth
 
+import com.aditprayogo.core.domain.model.DashboardData
 import com.aditprayogo.core.domain.model.InputData
 import com.aditprayogo.core.domain.model.PasswordData
 import com.aditprayogo.core.domain.repository.auth.AuthRepository
@@ -81,6 +82,10 @@ class AuthUseCaseImpl @Inject constructor(
             air,
             luasRumah
         )
+    }
+
+    override suspend fun dashboard(nik: String): Flow<ResultState<DashboardData>> {
+        return authRepository.dashboard(nik)
     }
 
 }

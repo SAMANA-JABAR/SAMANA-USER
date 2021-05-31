@@ -2,6 +2,7 @@ package com.aditprayogo.core.data.repository.auth
 
 import com.aditprayogo.core.data.UserPreferences
 import com.aditprayogo.core.data.remote.retrofit.AuthService
+import com.aditprayogo.core.domain.model.DashboardData
 import com.aditprayogo.core.domain.model.InputData
 import com.aditprayogo.core.domain.model.PasswordData
 import com.aditprayogo.core.domain.model.UserData
@@ -53,7 +54,7 @@ class AuthRepositoryImpl @Inject constructor(
             } catch (e: Exception) {
                 emit(ResultState.Error(e.toString(), 401))
             }
-        }
+        }.flowOn(Dispatchers.IO)
     }
 
     override suspend fun inputBantuan(
@@ -113,7 +114,19 @@ class AuthRepositoryImpl @Inject constructor(
             } catch (e: Exception) {
                 emit(ResultState.Error(e.toString(), 500))
             }
-        }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    override suspend fun dashboard(nik: String): Flow<ResultState<DashboardData>> {
+        return flow {
+            try {
+                val response = authService.dashboard(nik)
+                val dataMapped = DataMapper.mapDashboardResponseToDomain(response)
+                emit(ResultState.Success(dataMapped))
+            } catch (e : Exception) {
+                emit(ResultState.Error(e.toString(), 500))
+            }
+        }.flowOn(Dispatchers.IO)
     }
 
 }

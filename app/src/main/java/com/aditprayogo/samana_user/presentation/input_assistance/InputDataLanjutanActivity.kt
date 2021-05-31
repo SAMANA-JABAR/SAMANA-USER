@@ -97,34 +97,6 @@ class InputDataLanjutanActivity : AppCompatActivity() {
                     air = outlinedTextFieldAir.editText?.text.toString().trim()
                     luasRumah = outlinedTextFieldLuasRumah.editText?.text.toString().trim()
 
-//                    val data = InputDataBantuan(
-//                        nik = nik,
-//                        nama = data?.nama,
-//                        tgl_lahir = data?.tgl_lahir,
-//                        tanggungan = data?.tanggungan,
-//                        pendidikan = data?.pendidikan,
-//                        profesi = data?.profesi,
-//                        status = data?.status,
-//                        gaji = data?.gaji,
-//                        kota = data?.kota,
-//                        kecamatan = data?.kecamatan,
-//                        kelurahan = data?.kelurahan,
-//                        rt = rt,
-//                        rw = rw,
-//                        alamat = alamat,
-//                        bantuan = bantuan,
-//                        tahap = tahap,
-//                        kesehatan = kesehatan,
-//                        atap = atap,
-//                        dinding = dinding,
-//                        lantai = lantai,
-//                        penerangan = penerangan,
-//                        air = air,
-//                        luas_rumah = luasRumah
-//                    )
-
-//                    Log.d("dataDiLanjutan", "initDataLanjutan: ${data.pendidikan}")
-
                     nik?.let {
                         inputAssistanceViewModel.inputDataBantuan(
                             nama = data?.nama!!,

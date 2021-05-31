@@ -2,6 +2,7 @@ package com.aditprayogo.core.data.remote.retrofit
 
 import com.aditprayogo.core.data.remote.response.AuthResponse
 import com.aditprayogo.core.data.remote.response.BantuanResponse
+import com.aditprayogo.core.data.remote.response.DashboardResponse
 import com.aditprayogo.core.data.remote.response.PasswordResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -16,6 +17,7 @@ interface AuthService {
         private const val login_url = "https://login-dot-sharp-ring-312411.et.r.appspot.com/"
         private const val change_password_url = "https://changepass-dot-sharp-ring-312411.et.r.appspot.com/"
         private const val input_bantuan_url = "https://inputbantuan-dot-sharp-ring-312411.et.r.appspot.com/"
+        private const val dashboard_url = "https://dashboard-dot-sharp-ring-312411.et.r.appspot.com/"
     }
 
     /**
@@ -38,6 +40,15 @@ interface AuthService {
         @Field("currentpass") currentPass : String,
         @Field("newpass") newPass : String
     ) : PasswordResponse
+
+    /**
+     * Dashboard url
+     */
+    @FormUrlEncoded
+    @POST(dashboard_url)
+    suspend fun dashboard(
+        @Field("nik") nik : String,
+    ) : DashboardResponse
 
     /**
      * Input bantuan url
