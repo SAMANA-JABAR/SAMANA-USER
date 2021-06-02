@@ -14,9 +14,6 @@
             android:id="@+id/action_socialAssistanceFragment_to_historyAssistanceFragment"
             app:destination="@id/historyAssistanceFragment" />
         <action
-            android:id="@+id/action_socialAssistanceFragment_to_inputAssistanceFragment"
-            app:destination="@id/inputAssistanceFragment" />
-        <action
             android:id="@+id/action_socialAssistanceFragment_to_newsFragment"
             app:destination="@id/newsFragment"
             app:popUpToSaveState="true"/>
@@ -71,10 +68,5 @@
         android:label="Ganti Profile"
         tools:layout="@layout/fragment_change_password" />
 
-    <fragment
-        android:id="@+id/inputAssistanceFragment"
-        android:name="com.aditprayogo.samana_user.presentation.input_assistance.InputAssistanceFragment"
-        android:label="Input Data Bantuan"
-        tools:layout="@layout/fragment_input_assistance" />
 
 </navigation>

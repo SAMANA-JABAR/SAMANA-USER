@@ -224,7 +224,6 @@
                 app:cardBackgroundColor="@color/bluePrimary"
                 app:cardCornerRadius="25dp"
                 app:cardElevation="20dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/cardCekHistory"
                 app:layout_constraintStart_toStartOf="@+id/cardCekHistory"
                 app:layout_constraintTop_toBottomOf="@+id/cardCekHistory">

@@ -28,6 +28,7 @@
             android:layout_marginStart="@dimen/dimens16"
             android:text="Bantuan TIpe : "
             android:textColor="@color/bluePrimary"
+            android:layout_marginBottom="@dimen/dimens22"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
@@ -46,6 +47,18 @@
             app:layout_constraintBottom_toBottomOf="@+id/txtBantuanInfo"
             app:layout_constraintTop_toTopOf="@+id/txtBantuanInfo"
             app:layout_constraintStart_toEndOf="@+id/txtBantuanInfo"/>
+
+        <TextView
+            android:id="@+id/txtTanggal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/bluePrimary"
+            app:layout_constraintTop_toBottomOf="@+id/txtBantuanInfo"
+            app:layout_constraintStart_toStartOf="@+id/txtBantuanInfo"
+            tools:text="Tanggal"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
