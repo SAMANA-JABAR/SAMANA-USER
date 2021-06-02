@@ -58,6 +58,11 @@ class InputDataLanjutanActivity : AppCompatActivity() {
         initUi()
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
+    }
+
     private fun initDataFromIntent() {
         data = intent?.getParcelableExtra(INPUT_DATA)
     }
@@ -65,6 +70,10 @@ class InputDataLanjutanActivity : AppCompatActivity() {
     private fun initUi() {
         with(binding) {
             lifecycleScope.launch {
+                supportActionBar?.apply {
+                    title = "Input Data Lanjutan"
+                    setDisplayHomeAsUpEnabled(true)
+                }
                 setKesehatanAdapter()
                 setAtapAdapter()
                 setDindingAdapter()

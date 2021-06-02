@@ -59,7 +59,7 @@ class DetailNewsFragment : Fragment() {
             txtInformation.text = article.content
             txtAuthor.text = article.author ?: context?.getString(R.string.wawan)
             txtPublishedAt.text = article.publishedAt
-            txtSource.text = article.source.toString()
+            txtSource.text = article.source?.name?.toString()
         }
     }
 

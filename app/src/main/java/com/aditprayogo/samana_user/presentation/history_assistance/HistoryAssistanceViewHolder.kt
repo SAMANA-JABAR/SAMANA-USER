@@ -15,6 +15,7 @@ class HistoryAssistanceViewHolder(itemView : View) : RecyclerView.ViewHolder(ite
     fun bind(data : HistoryData) {
         with(binding) {
             txtAssistance.text = data.jenis
+            txtTanggal.text = data.tanggal
         }
     }
 

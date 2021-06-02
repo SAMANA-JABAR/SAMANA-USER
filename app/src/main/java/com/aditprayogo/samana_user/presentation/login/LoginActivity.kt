@@ -1,9 +1,13 @@
 package com.aditprayogo.samana_user.presentation.login
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isEmpty
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import com.aditprayogo.core.data.UserPreferences
@@ -35,6 +39,7 @@ class LoginActivity : AppCompatActivity() {
         initObservers()
         performLogin()
         initPreference()
+        validateLogin()
     }
 
     private fun initPreference() {
@@ -55,11 +60,11 @@ class LoginActivity : AppCompatActivity() {
             })
             error.observe(this@LoginActivity, { errorResponse ->
                 errorResponse?.let {
-                    showAlertDialog("User tidak ditemukan")
+                    showAlertDialog(getString(R.string.user_not_found))
                 }
             })
             networkError.observe(this@LoginActivity, {
-                toast("Please Retry your connection")
+                toast(getString(R.string.cek_connection))
             })
             loginData.observe(this@LoginActivity, { data ->
                 lifecycleScope.launch {
@@ -71,8 +76,6 @@ class LoginActivity : AppCompatActivity() {
                                 data.nama!!
                             )
                         }
-                    }
-                    data?.nik?.let {
                         startNewActivityAndClear(HomeActivity::class.java)
                     }
                 }
@@ -81,10 +84,71 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun performLogin() {
-        binding.btnLogin.setOnClickListener {
-            val nik = binding.outlinedTextFieldNik.editText?.text.toString()
-            val password = binding.outlinedTextFieldPassword.editText?.text.toString()
-            loginViewModel.login(nik, password)
+        with(binding) {
+            btnLogin.setOnClickListener {
+                val nik = outlinedTextFieldNik.editText?.text.toString()
+                val password = outlinedTextFieldPassword.editText?.text.toString()
+                loginViewModel.login(nik, password)
+            }
+        }
+    }
+
+    private fun validateLogin(){
+        with(binding) {
+            if (outlinedTextFieldNik.editText?.text.toString().trim().isEmpty()) {
+                setButtonToGrey(true)
+            }
+
+            if (outlinedTextFieldPassword.editText?.text.toString().trim().isEmpty()) {
+                setButtonToGrey(true)
+            }
+            /**
+             * Validate text field nik
+             */
+            outlinedTextFieldNik.editText?.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(text: CharSequence, p1: Int, p2: Int, p3: Int) {}
+                override fun onTextChanged(
+                    text: CharSequence,
+                    start: Int,
+                    before: Int,
+                    count: Int
+                ) {
+                    when (text.isEmpty() || outlinedTextFieldPassword.editText?.text.toString().trim().isEmpty()) {
+                        true -> {
+                            outlinedTextFieldNik.editText?.requestFocus()
+                            setButtonToGrey(true)
+                        }
+                        false -> {
+                            setButtonToGrey(false)
+                        }
+                    }
+                }
+                override fun afterTextChanged(p0: Editable?) {}
+            })
+
+            /**
+             * Validate text field password
+             */
+            outlinedTextFieldPassword.editText?.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(text: CharSequence, p1: Int, p2: Int, p3: Int) {}
+                override fun onTextChanged(
+                    text: CharSequence,
+                    start: Int,
+                    before: Int,
+                    count: Int
+                ) {
+                    when (text.isEmpty() || outlinedTextFieldNik.editText?.text.toString().trim().isEmpty()) {
+                        true -> {
+                            outlinedTextFieldPassword.editText?.requestFocus()
+                            setButtonToGrey(true)
+                        }
+                        false -> {
+                            setButtonToGrey(false)
+                        }
+                    }
+                }
+                override fun afterTextChanged(p0: Editable?) {}
+            })
         }
     }
 
@@ -98,15 +162,20 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun setButtonToGrey(state : Boolean) {
-        if (state) {
-            binding.btnLogin.setBackgroundColor(resources.getColor(R.color.colorShimmer))
-            binding.btnLogin.setTextColor(resources.getColor(R.color.white))
-            binding.btnLogin.isEnabled = false
-        } else {
-            binding.btnLogin.setBackgroundColor(resources.getColor(R.color.bluePrimary))
-            binding.btnLogin.setTextColor(resources.getColor(R.color.white))
-            binding.btnLogin.isEnabled = true
+    private fun setButtonToGrey(state: Boolean) {
+        with(binding) {
+            btnLogin.apply {
+                if (state) {
+                    setBackgroundColor(resources.getColor(R.color.colorShimmer))
+                    setTextColor(resources.getColor(R.color.white))
+                    isEnabled = false
+
+                } else {
+                    setBackgroundColor(resources.getColor(R.color.bluePrimary))
+                    btnLogin.setTextColor(resources.getColor(R.color.white))
+                    btnLogin.isEnabled = true
+                }
+            }
         }
     }
 }

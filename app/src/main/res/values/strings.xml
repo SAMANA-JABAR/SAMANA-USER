@@ -14,4 +14,8 @@
     <string name="author">Author</string>
     <string name="wawan">Wawan</string>
     <string name="loading">Loading...</string>
+    <string name="user_not_found">User tidak ditemukan</string>
+    <string name="cek_connection">Please Retry your connection</string>
+    <string name="nik_must_filled">Nik harus Di Isi</string>
+    <string name="password_must_filled">Password Harus Di isi</string>
 </resources>
