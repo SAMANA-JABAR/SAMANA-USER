@@ -39,6 +39,12 @@ Decision Support System for West Java Social Assistance using the SAW and K-Mean
 
 ## Layers
 
+<p align="center">
+    <img src="assets/cleean.png"
+        style="margin-right: 20px;"
+    />
+</p>
+
 - **Domain** - Contains the business logic of the application. It is the individual and innermost module. It’s a complete java module.
 - **Data** It includes the domain layer. It would implement the interface exposed by domain layer and dispenses data to app
 - **Presentation** - A layer that interacts with the UI, mainly Android Stuff like Activities, Fragments, ViewModel, etc. It would include both domain and data layers.
