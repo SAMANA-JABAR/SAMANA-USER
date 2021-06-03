@@ -56,7 +56,7 @@ Decision Support System for West Java Social Assistance using the SAW and K-Mean
 
 ## Youtube 
 
-[![SAMANA-USER-PREVIEW](https://img.youtube.com/vi/SKXyoNdt_Uc/1.jpg)](https://www.youtube.com/watch?v=SKXyoNdt_Uc)
+[![SAMANA-USER-PREVIEW](https://img.youtube.com/vi/SKXyoNdt_Uc/0.jpg)](https://www.youtube.com/watch?v=SKXyoNdt_Uc)
 
 ## Layers
 
