@@ -92,7 +92,7 @@ Decision Support System for West Java Social Assistance using the SAW and K-Mean
 ## License
 ```
 
-   Copyright © 2021 Aditiya Ihzar Eka Prayogo
+   Copyright © 2021 SAMANA
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
