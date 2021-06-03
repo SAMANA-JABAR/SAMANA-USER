@@ -46,7 +46,7 @@ class ChangePasswordViewModel @Inject constructor(
             authUseCase.changePassword(nik, currentPass, newPass).collect { data ->
                 when(data) {
                     is ResultState.Success -> {
-                        _passwordData.postValue(data.data)
+                        _passwordData.postValue(data.data!!)
                         _state.value = LoaderState.HideLoading
                     }
                     is ResultState.Error -> {

@@ -22,7 +22,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class ChangePasswordFragment : Fragment() {
 
-    private val binding : FragmentChangePasswordBinding by lazy {
+    private val binding: FragmentChangePasswordBinding by lazy {
         FragmentChangePasswordBinding.inflate(layoutInflater)
     }
 
@@ -31,7 +31,7 @@ class ChangePasswordFragment : Fragment() {
     @Inject
     lateinit var userPreferences: UserPreferences
 
-    private var nik : String? = null
+    private var nik: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,10 +59,9 @@ class ChangePasswordFragment : Fragment() {
     private fun initData() {
         with(binding) {
             btnSimpan.setOnClickListener {
-                val password = outlinedTextFieldCurrentPassword.editText?.text.toString()
-                val newPassword = outlinedTextFieldNewPassword.editText?.text.toString()
-                Log.d("nikSiUser", "initData: $nik")
-                nik?.let { changePasswordViewModel.changePassword(it, password,newPassword) }
+                val password = outlinedTextFieldCurrentPassword.editText?.text.toString().trim()
+                val newPassword = outlinedTextFieldNewPassword.editText?.text.toString().trim()
+                nik?.let { changePasswordViewModel.changePassword(it, password, newPassword) }
             }
 
         }
@@ -74,7 +73,7 @@ class ChangePasswordFragment : Fragment() {
                 handleLoaderState(it)
             })
             error.observe(viewLifecycleOwner, {
-                it?.let { it1 -> activity?.showAlertDialog(it1) }
+                it?.let { it1 -> activity?.showAlertDialog("Password sekarang tidak sesuai") }
             })
             networkError.observe(viewLifecycleOwner, {
                 activity?.showAlertDialog("Please change your internet connection")
@@ -90,7 +89,7 @@ class ChangePasswordFragment : Fragment() {
     }
 
     private fun handleLoaderState(state: LoaderState?) {
-        if (state is LoaderState.ShowLoading){
+        if (state is LoaderState.ShowLoading) {
             binding.loadingView.visibility = View.VISIBLE
         } else {
             binding.loadingView.visibility = View.INVISIBLE
