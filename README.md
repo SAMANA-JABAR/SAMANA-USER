@@ -6,6 +6,7 @@
 - [Introduction](#introduction)
 - [Selected Theme](#selected-theme)
 - [Title](#title)
+- [Usage](#usage)
 - [Demo](#demo)
 - [Layers](#layers)
 - [Tech Stack](#tech-stack)
@@ -22,6 +23,12 @@ Economic Resilience
 ## Title
 
 Decision Support System for West Java Social Assistance using the SAW and K-Means Method
+
+## Usage
+
+1. Clone this repository, you can run it Through the android studio, or you can download the [App release](https://github.com/SAMANA-JABAR/SAMANA-USER/releases/tag/1.0.1)
+2. Run the App and use NIK : ```12345``` and Password : ```admin```
+3. You're good to go
 
 ## Demo
 
