@@ -7,6 +7,7 @@
 - [Selected Theme](#selected-theme)
 - [Title](#title)
 - [Demo](#demo)
+- [Layers](#layers)
 - [Tech Stack](#tech-stack)
 - [Mad Scoreboard](#mad-scoreboard)
 
@@ -36,8 +37,15 @@ Decision Support System for West Java Social Assistance using the SAW and K-Mean
 |--|--|--|--|
 |![](assets/detail-news.jpg?raw=true)|![](assets/history.jpg?raw=true)|![](assets/input-data.jpg?raw=true)|![](assets/input-data-next.jpg?raw=true)|
 
+## Layers
+
+- **Domain** - Contains the business logic of the application. It is the individual and innermost module. It’s a complete java module.
+- **Data** It includes the domain layer. It would implement the interface exposed by domain layer and dispenses data to app
+- **Presentation** - A layer that interacts with the UI, mainly Android Stuff like Activities, Fragments, ViewModel, etc. It would include both domain and data layers.
+
 ## Tech Stack
 
+- [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) - Clean architecture is a software design philosophy that separates the elements of a design into ring levels. An important goal of clean architecture is to provide developers with a way to organize code in such a way that it encapsulates the business logic but keeps it separate from the delivery mechanism.
 - [Kotlin](https://kotlinlang.org/) - First class and official programming language for Android development.
 - [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html) - Is light wight threads for asynchronous programming
 - [Flow](https://developer.android.com/kotlin/flow) Handle the stream of data asynchronously that executes sequentially.
