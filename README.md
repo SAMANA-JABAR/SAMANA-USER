@@ -9,6 +9,7 @@
 - [Usage](#usage)
 - [Feature](#feature)
 - [Demo](#demo)
+- [Youtube](#youtube)
 - [Layers](#layers)
 - [Tech Stack](#tech-stack)
 - [Mad Scoreboard](#mad-scoreboard)
@@ -53,7 +54,9 @@ Decision Support System for West Java Social Assistance using the SAW and K-Mean
 |--|--|--|--|
 |![](assets/detail-news.jpg?raw=true)|![](assets/history.jpg?raw=true)|![](assets/input-data.jpg?raw=true)|![](assets/input-data-next.jpg?raw=true)|
 
-[![SAMANA-USER-PREVIEW](https://img.youtube.com/vi/SKXyoNdt_Uc/0.jpg)](https://www.youtube.com/watch?v=SKXyoNdt_Uc)
+## Youtube 
+
+[![SAMANA-USER-PREVIEW](https://img.youtube.com/vi/SKXyoNdt_Uc/1.jpg)](https://www.youtube.com/watch?v=SKXyoNdt_Uc)
 
 ## Layers
 
