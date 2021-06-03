@@ -27,7 +27,7 @@ Decision Support System for West Java Social Assistance using the SAW and K-Mean
 
 ## Usage
 
-1. Clone this repository, you can run it Through the android studio, or you can download the [App release](https://github.com/SAMANA-JABAR/SAMANA-USER/releases/tag/1.0.1) and install it on your mobile phone
+1. Clone this repository, you can run it Through the android studio, or you can download the [App release](https://github.com/SAMANA-JABAR/SAMANA-USER/releases/tag/1.0.2) and install it on your mobile phone
 2. Run the Application and use NIK : ```12345``` and Password : ```admin```
 3. You're good to go
 
@@ -52,6 +52,8 @@ Decision Support System for West Java Social Assistance using the SAW and K-Mean
 |Detail News Screen|History Screen|Input Assistance Screen|Input Assistance Next Screen|
 |--|--|--|--|
 |![](assets/detail-news.jpg?raw=true)|![](assets/history.jpg?raw=true)|![](assets/input-data.jpg?raw=true)|![](assets/input-data-next.jpg?raw=true)|
+
+[![SAMANA-USER-PREVIEW](https://img.youtube.com/vi/SKXyoNdt_Uc/0.jpg)](https://www.youtube.com/watch?v=SKXyoNdt_Uc)
 
 ## Layers
 
